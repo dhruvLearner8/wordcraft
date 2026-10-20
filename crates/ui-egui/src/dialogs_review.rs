@@ -356,6 +356,7 @@ impl AutoCorrectForm {
             "borderLines": o.border_lines,
             "tabIndent": o.tab_indent,
             "headingStyles": o.heading_styles,
+            "doubleSpacePeriod": o.double_space_period,
             "autoAddFirstLetter": o.auto_add_first_letter,
             "autoAddInitialCaps": o.auto_add_initial_caps,
         })
@@ -401,6 +402,7 @@ fn autocorrect_ui(app: &mut WordApp, ui: &mut Ui, f: &mut AutoCorrectForm) -> bo
             ui.checkbox(&mut o.bold_italic, tl!("*Bold* and _italic_ as real formatting"));
             ui.checkbox(&mut o.dashes, tl!("Hyphens (--) as dashes (—)"));
             ui.checkbox(&mut o.links, tl!("Internet addresses as links"));
+            ui.checkbox(&mut o.double_space_period, tl!("Add a period with double-space"));
             heading(ui, "Apply as you type");
             ui.checkbox(&mut o.bullets, tl!("Automatic bulleted lists"));
             ui.checkbox(&mut o.numbering, tl!("Automatic numbered lists"));

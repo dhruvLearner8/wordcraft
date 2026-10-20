@@ -114,6 +114,9 @@ pub struct AutoCorrectPrefs {
     /// letter or digit makes it Heading 1 (Heading 2 or 3 after one or two leading tabs).
     /// Off by default.
     pub heading_styles: bool,
+    /// A second Space after a word, number or closing bracket or quote turns the first into a
+    /// period (macOS's "Add period with double-space"); off by default.
+    pub double_space_period: bool,
     /// The user's entries: added, or replacing a built-in one.
     pub entries: Vec<(String, String)>,
     /// Built-in entries the user deleted.
@@ -152,6 +155,7 @@ impl Default for AutoCorrectPrefs {
             border_lines: true,
             tab_indent: false,
             heading_styles: false,
+            double_space_period: false,
             entries: Vec::new(),
             removed: Vec::new(),
             exceptions: Vec::new(),
@@ -344,6 +348,7 @@ fn autocorrect_options(s: &mut Session, v: &Value) -> CmdResult {
         ("borderLines", &mut ac.border_lines),
         ("tabIndent", &mut ac.tab_indent),
         ("headingStyles", &mut ac.heading_styles),
+        ("doubleSpacePeriod", &mut ac.double_space_period),
         ("autoAddFirstLetter", &mut ac.auto_add_first_letter),
         ("autoAddInitialCaps", &mut ac.auto_add_initial_caps),
     ] {
